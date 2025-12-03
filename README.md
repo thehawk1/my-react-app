@@ -1,14 +1,10 @@
 # My-React-App
 
-![License](https://img.shields.io/badge/License-Private-red)
-![GitHub License](https://img.shields.io/github/license/thehawk1/my-react-app)
- - 
-[![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#)
-[![W3Schools](https://img.shields.io/badge/W3Schools-04AA6D?logo=w3schools&logoColor=fff)](#)
-![Learning in progress](public/LearningInProgress.svg)
-
+![GitHub License](https://img.shields.io/badge/License-Private-red) - 
 <picture>
-	<img src="public/LearningInProgress.svg">
+	<img src="https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB"/>
+	<img src="https://img.shields.io/badge/W3Schools-04AA6D?logo=w3schools&logoColor=fff"/>
+	<img src="public/LearningInProgress.svg"/>
 </picture>
 
 As you can guess, this is "my" app used to learn React.JS. I do this by going trough W3School React course, and ultimately, I'll do the certification later on. 
