@@ -7,6 +7,9 @@
 [![W3Schools](https://img.shields.io/badge/W3Schools-04AA6D?logo=w3schools&logoColor=fff)](#)
 ![Learning in progress](public/LearningInProgress.svg)
 
+<picture>
+	<img src="public/LearningInProgress.svg">
+</picture>
 
 As you can guess, this is "my" app used to learn React.JS. I do this by going trough W3School React course, and ultimately, I'll do the certification later on. 
 
