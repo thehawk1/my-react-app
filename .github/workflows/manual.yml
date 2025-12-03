@@ -1,38 +1,47 @@
-# This is a basic workflow that is manually triggered
+name: Mise à jour du Badge de Statut
 
-name: Manual workflow
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
+  # Déclenchement sur chaque 'push' sur la branche principale
+  push:
+    branches:
+      - main
+  # Permet un déclenchement manuel si nécessaire
   workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        # Input has to be provided for the workflow to run
-        required: true
-        # The data type of the input
-        type: string
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  badgetizr:
+  update-badge:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Run Badgetizr
-        uses: aiKrice/homebrew-badgetizr@3.0.2
+      - name: Checkout du code
+        # Ceci est CRUCIAL. Utiliser le jeton PAT pour cloner et avoir les droits de push.
+        # Vous devez utiliser le secret 'GH_TOKEN' ici.
+        uses: actions/checkout@v4
         with:
-          pr_id: ${{ github.event.pull_request.number }}
-          configuration: .badgetizr.yml
-          pr_destination_branch: ${{ github.event.pull_request.base.ref }}
-          pr_build_number: ${{ github.run_id }}
-          pr_build_url: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          token: ${{ secrets.GH_TOKEN }} # <--- Utilisez votre PAT ici
+
+      - name: Configuration de Git
+        run: |
+          # Configure l'identité du bot pour le commit
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+      - name: Modifier le Fichier (Simulé)
+        # Remplacez ceci par la vraie commande pour générer votre badge (ex: via une librairie)
+        run: |
+          echo '<svg xmlns="http://www.w3.org/2000/svg" width="164" height="20" role="img" aria-label="last commit: yesterday"><title>Last Commit: ${{ github.sha }}</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="100%" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="75" height="20" fill="#555"/><rect x="75" width="100%" height="20" fill="#4c1"/><rect width="100%" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="11"><text x="38.5" y="14">Last Commit</text><text x="119" y="14">${{ github.sha }}</text></g></svg>' > badge.svg
+          echo "Le fichier badge.svg a été mis à jour."
+
+      - name: Commit et Push des changements
+        id: commit
+        run: |
+          # Vérifie si badge.svg a réellement changé
+          git diff --quiet badge.svg || (
+            git add badge.svg &&
+            git commit -m "chore(workflow): Mise à jour automatique du badge de statut [skip ci]" &&
+            # La commande push utilise le token configuré au 'checkout'
+            git push
+          )
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Définir l'URL du dépôt avec le jeton PAT pour le 'git push'
+          # Bien que l'utilisation du `token` au checkout soit souvent suffisante, c'est une sécurité
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

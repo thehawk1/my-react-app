@@ -2,9 +2,10 @@
 
 <picture>
 	<img id="GitHub License" name="GitHub License" src="https://img.shields.io/badge/License-Private-red" alt="GitHub License Private"/> - 
-	<img  id="React" name="React" src="https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB" alt="React"/>
-	<img  id="W3Schools" name="W3Schools" src="https://img.shields.io/badge/W3Schools-04AA6D?logo=w3schools&logoColor=fff" alt="W3Schools"/>
-	<img  id="Learning in progress" name="Learning in progress" src="public/LearningInProgress.svg" alt="Learning in progress: 22% done"/>
+	<img id="React" name="React" src="https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB" alt="React"/>
+	<img id="W3Schools" name="W3Schools" src="https://img.shields.io/badge/W3Schools-04AA6D?logo=w3schools&logoColor=fff" alt="W3Schools"/>
+	<img id="Learning in progress" name="Learning in progress" src="public/LearningInProgress.svg" alt="Learning in progress: 22% done"/> - 
+	<img id="Last Commit" name="Last Commit" src="public/LastCommit.svg" alt="Last Commit date">
 </picture>
 
 As you can guess, this is "my" app used to learn React.JS. I do this by going trough W3School React course, and ultimately, I'll do the certification later on. 
