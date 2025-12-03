@@ -5,7 +5,7 @@
  - 
 [![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#)
 [![W3Schools](https://img.shields.io/badge/W3Schools-04AA6D?logo=w3schools&logoColor=fff)](#)
-![Static Badge](https://img.shields.io/badge/Learning%20in%20progress-22%25%20done-lime)
+![Learning in progress](public\LearningInProgress.svg)
 
 
 As you can guess, this is "my" app used to learn React.JS. I do this by going trough W3School React course, and ultimately, I'll do the certification later on. 
